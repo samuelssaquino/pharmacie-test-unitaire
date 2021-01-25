@@ -18,9 +18,10 @@ public class Cosmetique extends Produit {
 
         double rabais = 0.00;
 
-        if (getPrix() <= 30.00) {
+        if (getPrix() <= 30.00) { //15% de rabais sur les cosmétiques jusqu'à $30,00
             rabais = 0.15 * getPrix();
-        } else if (getPrix() <= 70.00) {
+
+        } else if (getPrix() <= 70.00) { //20% de rabais sur les cosmétiques jusqu'à $70,00
             rabais = 0.2 * getPrix();
         }
         return rabais;
