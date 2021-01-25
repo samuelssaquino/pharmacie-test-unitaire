@@ -4,7 +4,7 @@ import Fournisseur.Fournisseur;
 
 import java.time.LocalDate;
 
-// Sous-classe des médicaments
+// Sous-classe médicaments
 public class Medicament extends Produit {
 
     // Constructeur des médicaments
