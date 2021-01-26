@@ -4,22 +4,27 @@ import Produit.Produit;
 
 import java.util.ArrayList;
 
+//Cette classe stocke les produits dans l'arraylist
 public class StockageProduit {
 
     ArrayList<Produit> produits = new ArrayList<Produit>();
 
+    //Cette méthode insère les produits dans l'arraylist
     public void enregistrerProduit(Produit p) {
         this.produits.add(p);
     }
 
+    //Cette méthode renvoie le nombre de produits stockés.
     public int quantiteProduitStockes() {
         return this.produits.size();
     }
 
+    //Cette méthode renvoie tous les produits stockés.
     public ArrayList<Produit> getTousLesProduits() {
         return this.produits;
     }
 
+    //Cette méthode recherche un produit par son code.
     public Produit rechercherProduitParCode(String code) {
 
         Produit produitRechercher = null;
@@ -43,6 +48,7 @@ public class StockageProduit {
         return produitRechercher;
     }
 
+    //Cette méthode recherche un produit par sa description.
     public Produit rechercherProduitParNom(String description) {
 
         Produit produitRechercher = null;
