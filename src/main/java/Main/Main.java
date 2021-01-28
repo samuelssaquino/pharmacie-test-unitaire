@@ -515,65 +515,67 @@ public class Main {
                         }
                     }
                     break;
-                //CLIENTES
+                //CLIENTS
                 case "3":
 
-                    String opcaoCliente = "";
-                    while (!opcaoCliente.equals("0")) {
+                    String optionClient = "";
+                    while (!optionClient.equals("0")) {
                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                        System.out.print("                    [1-CLIENTE POR CPF]");
-                        System.out.print(" [2-CLIENTE POR NOME]");
-                        System.out.print(" [3-TODOS OS CLIENTES]");
+                        System.out.print("                    [1-CLIENT PAR CODE]");
+                        System.out.print(" [2-CLIENT PAR NOM]");
+                        System.out.print(" [3-TOUS LES CLIENT]");
                         System.out.println(" [0-MENU PRINCIPAL]");
                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                        System.out.print("                                               Digite uma das opções: ");
-                        opcaoCliente = clavier.next();
+                        System.out.print("                                               Entrez une des options: ");
+                        optionClient = clavier.next();
 
-                        switch (opcaoCliente) {
+                        switch (optionClient) {
                             case "1":
-                                Client clienteProcuradoPorCpf;
+                                Client clientRechercherParCode;
+
+                                //Répéter jusqu'à trouver le client par code
                                 do {
-                                    //PRODUTO A SER COMPRADO INFORMADO
-                                    String cpf;
-                                    System.out.print("CPF do cliente: ");
-                                    cpf = clavier.next();
+                                    String codeClient;
+                                    System.out.print("Code Client: ");
+                                    codeClient = clavier.next();
 
-                                    //VERIFICA SE EXISTE O PRODUTO NO REPOSITÓRIO
-                                    clienteProcuradoPorCpf = stockageClients.rechercherClientParCode(cpf);
+                                    //Vérifier si il y a le client recherché
+                                    clientRechercherParCode = stockageClients.rechercherClientParCode(codeClient);
 
-                                } while (clienteProcuradoPorCpf == null);
+                                } while (clientRechercherParCode == null);
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                             ===== CLIENTE POR CPF =====                                                     ");
+                                System.out.println("                                             ===== CLIENT PAR CODE =====                                                     ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
-                                System.out.println("CPF do cliente: " + clienteProcuradoPorCpf.getCode());
-                                System.out.println("Nome: " + clienteProcuradoPorCpf.getNom());
+                                System.out.println("Code: " + clientRechercherParCode.getCode());
+                                System.out.println("Nom Client: " + clientRechercherParCode.getNom());
                                 System.out.println("");
                                 break;
                             case "2":
-                                Client clienteProcuradoPorNome;
+                                Client clientRechercherParNom;
+
+                                //Répéter jusqu'à trouver le client par nom
                                 do {
-                                    //PRODUTO A SER COMPRADO INFORMADO
-                                    String nome;
-                                    System.out.print("Nome do cliente: ");
-                                    nome = clavier.next();
+                                    String nom;
+                                    System.out.print("Nom client: ");
+                                    nom = clavier.next();
 
-                                    //VERIFICA SE EXISTE O PRODUTO NO REPOSITÓRIO
-                                    clienteProcuradoPorNome = stockageClients.rechercherClientParNom(nome);
+                                    //Vérifier si il y a le client recherché
+                                    clientRechercherParNom = stockageClients.rechercherClientParNom(nom);
 
-                                } while (clienteProcuradoPorNome == null);
+                                } while (clientRechercherParNom == null);
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                             ===== CLIENTE POR NOME =====                                                     ");
+                                System.out.println("                                             ===== CLIENT PAR NOM =====                                                     ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
-                                System.out.println("CPF do cliente: " + clienteProcuradoPorNome.getCode());
-                                System.out.println("Nome: " + clienteProcuradoPorNome.getNom());
+                                System.out.println("Code: " + clientRechercherParNom.getCode());
+                                System.out.println("Nom Client: " + clientRechercherParNom.getNom());
                                 System.out.println("");
                                 break;
                             case "3":
@@ -581,18 +583,18 @@ public class Main {
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                            ===== TODOS OS CLIENTES =====                                     ");
+                                System.out.println("                                            ===== TOUS LES CLIENTS =====                                     ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
-                                System.out.println("Quantidade total de clientes cadastrados: " + stockageClients.quantiteClientStockes());
+                                System.out.println("Quantité totale des clients enregistrés: " + stockageClients.quantiteClientStockes());
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 
                                 for (int i = 0; i < tousLesClients.size(); i++) {
                                     Client c = tousLesClients.get(i);
 
-                                    System.out.println("CPF: " + c.getCode());
-                                    System.out.println("Nome do cliente: " + c.getNom());
+                                    System.out.println("Code: " + c.getCode());
+                                    System.out.println("Nom client: " + c.getNom());
                                     System.out.println("");
                                 }
                                 break;
