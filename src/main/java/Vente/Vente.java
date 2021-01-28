@@ -12,8 +12,8 @@ public class Vente {
     private int code;
     private int quantite;
     private double prixTotal;
-    Client client; // Une vente a seleument un client
-    ArrayList<Produit> produits; // Une vente comporte un ou plusieurs produits
+    public Client client; // Une vente a seleument un client
+    public ArrayList<Produit> produits; // Une vente comporte un ou plusieurs produits
 
     // Getters et Setters des produits
     public int getCode() {
