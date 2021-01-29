@@ -604,85 +604,88 @@ public class Main {
                     break;
                 //FORNECEDORES
                 case "4":
-                    String opcaoFornecedor = "";
-                    while (!opcaoFornecedor.equals("0")) {
+                    String optionFournisseur = "";
+                    while (!optionFournisseur.equals("0")) {
                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                        System.out.print("            [1-FORNECEDOR POR CÓDIGO]");
-                        System.out.print(" [2-FORNECEDOR POR NOME]");
-                        System.out.print(" [3-TODOS OS FORNECEDORES]");
+                        System.out.print("            [1-FOURNISSEUR PAR CODE]");
+                        System.out.print(" [2-FOURNISSEUR PAR NOM]");
+                        System.out.print(" [3-TOUS LES FOURNISSEURS]");
                         System.out.println(" [0-MENU PRINCIPAL]");
                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                        System.out.print("                                               Digite uma das opções: ");
-                        opcaoFornecedor = clavier.next();
+                        System.out.print("                                               Entrez une des options: ");
+                        optionFournisseur = clavier.next();
 
-                        switch (opcaoFornecedor) {
+                        switch (optionFournisseur) {
                             case "1":
 
-                                Fournisseur fornecedorProcuradoPorCodigo;
+                                Fournisseur fournisseurRechercherParCode;
+
+                                //Répéter jusqu'à trouver le fournisseur par code
                                 do {
-                                    //PRODUTO A SER COMPRADO INFORMADO
-                                    String codFornecedor;
-                                    System.out.print("Código do Fornecedor: ");
-                                    codFornecedor = clavier.next();
+                                    String codFournisseur;
+                                    System.out.print("Code Fournisseur: ");
+                                    codFournisseur = clavier.next();
 
-                                    //VERIFICA SE EXISTE O PRODUTO NO REPOSITÓRIO
-                                    fornecedorProcuradoPorCodigo = stockageFournisseurs.rechercherFournisseurParCode(codFornecedor);
+                                    //Vérifier si il y a le fournisseur recherché
+                                    fournisseurRechercherParCode = stockageFournisseurs.rechercherFournisseurParCode(codFournisseur);
 
-                                } while (fornecedorProcuradoPorCodigo == null);
+                                } while (fournisseurRechercherParCode == null);
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                            ===== FORNECEDOR POR CÓDIGO =====                                                     ");
+                                System.out.println("                                            ===== FOURNISSEUR PAR CODE =====                                                     ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
-                                System.out.println("Código do Fornecedor: " + fornecedorProcuradoPorCodigo.getCode());
-                                System.out.println("Nome: " + fornecedorProcuradoPorCodigo.getNom());
+                                System.out.println("Code: " + fournisseurRechercherParCode.getCode());
+                                System.out.println("Nom Fournisseur: " + fournisseurRechercherParCode.getNom());
                                 System.out.println("");
 
                                 break;
                             case "2":
 
-                                Fournisseur fornecedorProcuradoPorNome;
+                                Fournisseur fournisseurRechercherParNom;
+
+                                //Répéter jusqu'à trouver le fournisseur par nom
                                 do {
                                     //PRODUTO A SER COMPRADO INFORMADO
-                                    String nomeFornecedor;
-                                    System.out.print("Nome do Fornecedor: ");
-                                    nomeFornecedor = clavier.next();
+                                    String nomFournisseur;
+                                    System.out.print("Nom fournisseur: ");
+                                    nomFournisseur = clavier.next();
 
-                                    //VERIFICA SE EXISTE O PRODUTO NO REPOSITÓRIO
-                                    fornecedorProcuradoPorNome = stockageFournisseurs.rechercherFournisseurParNom(nomeFornecedor);
+                                    //Vérifier si il y a le fournisseur recherché
+                                    fournisseurRechercherParNom = stockageFournisseurs.rechercherFournisseurParNom(nomFournisseur);
 
-                                } while (fornecedorProcuradoPorNome == null);
+                                } while (fournisseurRechercherParNom == null);
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                           ===== FORNECEDOR POR NOME =====                                                     ");
+                                System.out.println("                                           ===== FOURNISSEUR PAR NOM =====                                                     ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
-                                System.out.println("Nome do Fornecedor: " + fornecedorProcuradoPorNome.getCode());
-                                System.out.println("Nome: " + fornecedorProcuradoPorNome.getNom());
+                                System.out.println("Code: " + fournisseurRechercherParNom.getCode());
+                                System.out.println("Nom Fournisseur: " + fournisseurRechercherParNom.getNom());
                                 System.out.println("");
 
                                 break;
                             case "3":
-                                ArrayList<Fournisseur> todosOsFornecedores = stockageFournisseurs.getTousLesFournisseurs();
+                                ArrayList<Fournisseur> tousLesFournisseurs = stockageFournisseurs.getTousLesFournisseurs();
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                           ===== TODOS OS FORNECEDORES =====                                 ");
+                                System.out.println("                                           ===== TOUS LES FOURNISSEURS =====                                 ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
-                                System.out.println("Quantidade total de fornecedores cadastrados: " + stockageFournisseurs.quantiteFournisseurStockes());
+                                System.out.println("Quantité totale des fournisseurs enregistrés: " + stockageFournisseurs.quantiteFournisseurStockes());
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 
-                                for (int i = 0; i < todosOsFornecedores.size(); i++) {
-                                    Fournisseur f = todosOsFornecedores.get(i);
+                                for (int i = 0; i < tousLesFournisseurs.size(); i++) {
+                                    Fournisseur f = tousLesFournisseurs.get(i);
 
-                                    System.out.println("Código do Fornecedor: " + f.getCode());
-                                    System.out.println("Nome do fornecedor: " + f.getNom());
+                                    System.out.println("Code: " + f.getCode());
+                                    System.out.println("Nom fournisseur: " + f.getNom());
                                     System.out.println("");
                                 }
                                 break;
