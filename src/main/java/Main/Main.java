@@ -502,10 +502,6 @@ public class Main {
 
                                     produitRechercherAugmenterStock.ajouterStock(quantiteAjouterStock);
 
-                                    System.out.println("");
-                                    System.out.println("Stock: " + produitRechercherAugmenterStock.getStock() + " unité(s)");
-                                    System.out.println("");
-                                    System.out.println("La quantité a été enregistrée!");
                                 } else {
                                     System.out.println("");
                                     System.out.println("Aucune quantité n'a été enregistrée");

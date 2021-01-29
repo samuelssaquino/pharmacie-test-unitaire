@@ -52,7 +52,22 @@ public abstract class Produit {
 
     // Cette méthode augmente la quantité dans le stock de produits
     public void ajouterStock(int quantite) {
-        this.stock += quantite;
+
+        if (quantite <= 0) {
+            System.out.println("");
+            System.out.println("Cette quantité n'est pas valide, veuillez entrer une quantité supérieur à zéro!");
+            System.out.println("");
+            System.out.println("Aucune quantité n'a été enregistrée");
+            System.out.println("");
+        } else {
+            this.stock += quantite;
+            System.out.println("");
+            System.out.println("Stock: " + getStock() + " unité(s)");
+            System.out.println("");
+            System.out.println("La quantité a été enregistrée!");
+        }
+
+
     }
 
     // Cette méthode valide si une quantité sera supprimée du stock de produits
