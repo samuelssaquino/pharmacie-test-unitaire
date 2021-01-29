@@ -21,7 +21,7 @@ public class StockageVente {
     }
 
     //Cette méthode renvoie tous les ventes stockés.
-    public ArrayList<Vente> getTousLesVentes() {
+    public ArrayList<Vente> getToutesLesVentes() {
         return this.ventes;
     }
 

@@ -106,7 +106,7 @@ public class Main {
         while (!option.equals("0")) {
             //MENU PRINCIPALE
             System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-            System.out.print("                       [1-FAIRE UN ACHAT]");
+            System.out.print("                 [1-FAIRE UN ACHAT]");
             System.out.print(" [2-PRODUITS]");
             System.out.print(" [3-CLIENTS]");
             System.out.print(" [4-FOURNISSEURS]");
@@ -295,7 +295,7 @@ public class Main {
                         System.out.print(" [2-PRODUTIS PAR NOM]");
                         System.out.println(" [3-MEDICAMENTS]");
                         System.out.println("");
-                        System.out.print("                           [4-COSMÉTIQUES]");
+                        System.out.print("                    [4-COSMÉTIQUES]");
                         System.out.print(" [5-TOUS LES PRODUITS]");
                         System.out.println(" [6-AUGMENTEZ LA QUATITÉ D'ARTICLES EN STOCK]");
                         System.out.println("");
@@ -375,7 +375,7 @@ public class Main {
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                        ===== PRODUITS - MEDICAMENTS =====                             ");
+                                System.out.println("                                           ===== PRODUITS - MEDICAMENTS =====                             ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
@@ -402,7 +402,7 @@ public class Main {
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                         ===== PRODUITS - COSMÉTIQUES =====                                ");
+                                System.out.println("                                           ===== PRODUITS - COSMÉTIQUES =====                                ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
@@ -429,7 +429,7 @@ public class Main {
                                 ArrayList<Produit> tousLesProduits = stockageProduits.getTousLesProduits();
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                             =====TOUS LES PRODUITS =====                                                 ");
+                                System.out.println("                                               =====TOUS LES PRODUITS =====                                                 ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
                                 System.out.println("Quantité totale de produits enregistrés: " + stockageProduits.quantiteProduitStockes());
@@ -455,7 +455,7 @@ public class Main {
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                         ===== AUGMENTER LE STOCK =====                                 ");
+                                System.out.println("                                             ===== AUGMENTER LE STOCK =====                                 ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
@@ -692,74 +692,76 @@ public class Main {
                         }
                     }
                     break;
-                //VENDAS
+
+                //VENTES
                 case "5":
 
-                    String opcaoVenda = "";
-                    while (!opcaoVenda.equals("0")) {
+                    String optionVente = "";
+                    while (!optionVente.equals("0")) {
                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                        System.out.print("                [1-VENDA POR CÓDIGO]");
-                        System.out.print(" [2-VENDA PELO NOME CLIENTE]");
-                        System.out.print(" [3-TODAS AS VENDAS]");
+                        System.out.print("                [1-VENTE PAR CODE]");
+                        System.out.print(" [2-VENTE PAR NOM CLIENT]");
+                        System.out.print(" [3-TOUTES LES VENTES]");
                         System.out.println(" [0-MENU PRINCIPAL]");
                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                        System.out.print("                                               Digite uma das opções: ");
-                        opcaoVenda = clavier.next();
+                        System.out.print("                                               Entrez une des options: ");
+                        optionVente = clavier.next();
 
-                        switch (opcaoVenda) {
+                        switch (optionVente) {
                             case "1":
 
-                                ArrayList<Vente> todasAsVendasPCodigo = stockageVentes.getTousLesVentes();
-                                Vente vendaProcuradoPorCodigo;
+                                ArrayList<Vente> toutesLesVentesParCode = stockageVentes.getToutesLesVentes();
+                                Vente venteRechercherParCode;
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                            ===== VENDA POR CÓDIGO =====                                                     ");
+                                System.out.println("                                            ===== VENTE PAR CODE =====                                                     ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
 
-                                int codVendaInt = 0;
-                                boolean tipoCodVendaInt;
+                                int codeVente = 0;
+                                boolean valideTypeCodeVente;
 
-                                if (todasAsVendasPCodigo.isEmpty()) {
+                                if (toutesLesVentesParCode.isEmpty()) {
                                     System.out.println("");
-                                    System.out.println("                                            Não existe vendas realizadas!");
-                                    System.out.println("                                            Quantidade total de vendas: " + stockageVentes.quantiteVenteRealisees());
+                                    System.out.println("                                            Il n'y a pas de ventes effectuées!");
+                                    System.out.println("                                            Quantité totale de ventes: " + stockageVentes.quantiteVenteRealisees());
                                     System.out.println("");
                                 } else {
+
+                                    //Répéter jusqu'à trouver la vente par code
                                     do {
-                                        //PRODUTO A SER COMPRADO INFORMADO
-                                        String codVendaS;
-                                        System.out.print("Código da Venda: ");
-                                        codVendaS = clavier.next();
+                                        String codeVenteS;
+                                        System.out.print("Code Vente: ");
+                                        codeVenteS = clavier.next();
 
                                         try {
-                                            codVendaInt = Integer.parseInt(codVendaS);
-                                            tipoCodVendaInt = true;
+                                            codeVente = Integer.parseInt(codeVenteS);
+                                            valideTypeCodeVente = true;
 
                                         } catch (Exception e) {
                                             System.out.println("");
-                                            System.out.println("O tipo é inválido, informe um tipo válido!");
+                                            System.out.println("Le type n'est pas valide, veuillez entrer un type valide!");
                                             System.out.println("");
-                                            tipoCodVendaInt = false;
+                                            valideTypeCodeVente = false;
                                         }
-                                    } while (!tipoCodVendaInt);
+                                    } while (!valideTypeCodeVente);
 
-                                    //VERIFICA SE EXISTE A VENDA NO REPOSITÓRIO DO O CÓDIGO INFORMADO
-                                    vendaProcuradoPorCodigo = stockageVentes.rechercherVenteParCode(codVendaInt);
+                                    //Vérifier si il y a le fournisseur recherché
+                                    venteRechercherParCode = stockageVentes.rechercherVenteParCode(codeVente);
 
-                                    if (!(vendaProcuradoPorCodigo == null)) {
+                                    if (!(venteRechercherParCode == null)) {
                                         System.out.println("");
-                                        System.out.println("Nome do Cliente: " + vendaProcuradoPorCodigo.getClient().getNom());
+                                        System.out.println("Nom client: " + venteRechercherParCode.getClient().getNom());
                                         System.out.println("");
-                                        System.out.println("Produto(s): ");
-                                        for (int x = 0; x < vendaProcuradoPorCodigo.produits.size(); x++) {
-                                            System.out.println(" * " + vendaProcuradoPorCodigo.produits.get(x).getDescription());
+                                        System.out.println("Produit(s): ");
+                                        for (int x = 0; x < venteRechercherParCode.produits.size(); x++) {
+                                            System.out.println(" * " + venteRechercherParCode.produits.get(x).getDescription());
                                         }
                                         System.out.println("");
-                                        System.out.println("Quantidade total de itens: " + vendaProcuradoPorCodigo.getQuantite());
-                                        System.out.printf("VALOR TOTAL: R$ %.2f", +vendaProcuradoPorCodigo.getPrixTotal());
+                                        System.out.println("Quantité totale d'articles vendus: " + venteRechercherParCode.getQuantite());
+                                        System.out.printf("VALEUR TOTAL: $ %.2f", +venteRechercherParCode.getPrixTotal());
                                         System.out.println("");
                                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                         System.out.println("");
@@ -768,39 +770,39 @@ public class Main {
 
                                 break;
                             case "2":
-                                System.out.println("Falta implementar");
+                                System.out.println("En construction!");
                                 break;
                             case "3":
-                                ArrayList<Vente> todasAsVendas = stockageVentes.getTousLesVentes();
+                                ArrayList<Vente> toutesLesVentes = stockageVentes.getToutesLesVentes();
 
                                 System.out.println("");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                                System.out.println("                                          ===== LISTAR TODAS AS VENDAS =====                                      ");
+                                System.out.println("                                          ===== AFFICHER TOUTES LES VENTES =====                                      ");
                                 System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                 System.out.println("");
 
-                                if (todasAsVendas.isEmpty()) {
-                                    System.out.println("                                            Não existe vendas realizadas!");
-                                    System.out.println("                                            Quantidade total de vendas: " + stockageVentes.quantiteVenteRealisees());
+                                if (toutesLesVentes.isEmpty()) {
+                                    System.out.println("                                            Il n'y a pas de ventes effectuées!");
+                                    System.out.println("                                            Quantité totale de ventes: " + stockageVentes.quantiteVenteRealisees());
                                     System.out.println("");
                                 } else {
-                                    System.out.println("Quantidade total de vendas: " + stockageVentes.quantiteVenteRealisees());
+                                    System.out.println("Quantité totale de ventes: " + stockageVentes.quantiteVenteRealisees());
                                     System.out.println("");
                                     System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 
-                                    for (int i = 0; i < todasAsVendas.size(); i++) {
-                                        v = todasAsVendas.get(i);
+                                    for (int i = 0; i < toutesLesVentes.size(); i++) {
+                                        v = toutesLesVentes.get(i);
 
-                                        System.out.println("Código da venda: " + v.getCode());
+                                        System.out.println("Code vente: " + v.getCode());
                                         System.out.println("");
-                                        System.out.println("Nome do Cliente: " + v.getClient().getNom());
-                                        System.out.println("Produto(s): ");
+                                        System.out.println("Nom vente: " + v.getClient().getNom());
+                                        System.out.println("Produit(s): ");
                                         for (int x = 0; x < v.produits.size(); x++) {
                                             System.out.println(" * " + v.produits.get(x).getDescription());
                                         }
                                         System.out.println("");
-                                        System.out.println("Quantidade total de itens: " + v.getQuantite());
-                                        System.out.printf("VALOR TOTAL: R$ %.2f", +v.getPrixTotal());
+                                        System.out.println("Quantité totale d'articles vendus: " + v.getQuantite());
+                                        System.out.printf("VALEUR TOTAL: $ %.2f", +v.getPrixTotal());
                                         System.out.println("");
                                         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
                                     }
@@ -815,7 +817,7 @@ public class Main {
 
         System.out.println("");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("                                           ===== Aplicação finalizada! =====                      ");
+        System.out.println("                                           ===== Application fermée! =====                      ");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
         System.out.println("");
     }
