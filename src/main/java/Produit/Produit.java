@@ -51,8 +51,8 @@ public abstract class Produit {
     }
 
     // Cette méthode augmente la quantité dans le stock de produits
-    public int ajouterStock(int quantite) {
-        return this.stock += quantite;
+    public void ajouterStock(int quantite) {
+        this.stock += quantite;
     }
 
     // Cette méthode valide si une quantité sera supprimée du stock de produits

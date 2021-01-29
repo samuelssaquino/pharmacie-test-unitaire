@@ -475,7 +475,7 @@ public class Main {
                                 System.out.println("");
                                 System.out.println("Stock: " + produitRechercherAugmenterStock.getStock() + " unité(s)");
                                 System.out.println("");
-                                System.out.print("Est-ce que vous voudrais ajouter plus quantité dans le stock? - (1 - oui/ 2 - n)? ");
+                                System.out.print("Est-ce que vous voudrais ajouter plus quantité dans le stock? - (1 - oui / 2 - n)? ");
                                 char respAddEstoque = clavier.next().charAt(0);
 
                                 if (respAddEstoque == '1') {
