@@ -18,7 +18,10 @@ public class Medicament extends Produit {
 
         double rabais = 0.00;
 
-        if (getPrix() <= 6.00) { //5% de rabais sur les medicament jusqu'à $6,00
+        if (getPrix() <= 0.0) { //Pour valider si le prix est negative ou zero
+            rabais = 0.00;
+
+        } else if (getPrix() <= 6.00) { //5% de rabais sur les medicament jusqu'à $6,00
             rabais = 0.05 * getPrix();
 
         } else if (getPrix() <= 12.00) { //10% de rabais sur les medicament jusqu'à $12,00

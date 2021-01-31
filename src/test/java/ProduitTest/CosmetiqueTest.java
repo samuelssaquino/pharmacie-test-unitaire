@@ -3,7 +3,6 @@ package ProduitTest;
 import Fournisseur.Fournisseur;
 import Produit.Cosmetique;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -42,6 +41,7 @@ public class CosmetiqueTest {
     @DisplayName("Rabais maximal 0% - $0.0 - $0.0")
     @Test
     public void rabaisMax_0pourcent_0dollar_0dollar() {
+
         cosmetique = new Cosmetique("0303", "DescTU3", 10, LocalDate.now(), 0.0, new Fournisseur("0303", "FornTU3"));
 
         double actuel = cosmetique.rabaisMax();
@@ -53,6 +53,7 @@ public class CosmetiqueTest {
     @DisplayName("Rabais maximal 0% - $-1.0 - $0.0")
     @Test
     public void rabaisMax_moins1dollar_0Dollar() {
+
         cosmetique = new Cosmetique("0404", "DescTU4", 10, LocalDate.now(), -1.0, new Fournisseur("0404", "FornTU4"));
 
         double actuel = cosmetique.rabaisMax();

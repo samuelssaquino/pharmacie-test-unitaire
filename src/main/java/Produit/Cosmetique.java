@@ -20,6 +20,7 @@ public class Cosmetique extends Produit {
 
         if (getPrix() <= 0.0) { //Pour valider si le prix est negative ou zero
             rabais = 0.00;
+
         } else if (getPrix() <= 30.00) { //15% de rabais sur les cosmétiques jusqu'à $30,00
             rabais = 0.15 * getPrix();
 
