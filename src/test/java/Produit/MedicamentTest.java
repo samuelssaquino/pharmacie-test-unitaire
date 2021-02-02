@@ -1,7 +1,6 @@
-package ProduitTest;
+package Produit;
 
 import Fournisseur.Fournisseur;
-import Produit.Medicament;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
