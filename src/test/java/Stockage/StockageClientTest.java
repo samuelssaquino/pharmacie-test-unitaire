@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class StockageClientTest {
 
-    @DisplayName("Il devrait enregistrer un client et verifier le taille=1, code=0101, nom=Client1")
+    @DisplayName("Il devrait enregistrer un client et verifier le code=0101, nom=Client1")
     @Test
     public void enregistrerClient_client1_getCodeGetNom() {
 
@@ -19,7 +19,6 @@ public class StockageClientTest {
         stockageClient.enregistrerClient(client1);
 
         Assertions.assertAll(
-                () -> Assertions.assertEquals(1, stockageClient.clients.size()),
                 () -> Assertions.assertEquals("0101", stockageClient.clients.get(0).getCode()),
                 () -> Assertions.assertEquals("Client1", stockageClient.clients.get(0).getNom())
 
